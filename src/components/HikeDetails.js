@@ -11,15 +11,16 @@ export class HikeDetails extends React.Component {
 					<EditHike 
 					hikes={this.props.hikes} 
 					id={this.props.id}
-					saveChanges={this.props.saveChanges} />
+					saveChanges={this.props.saveChanges}
+					editDetails={this.props.editDetails} />
 				) : (
 					<ViewHike 
 					hikes={this.props.hikes} 
 					id={this.props.id} 
 					editHike={this.props.editHike} 
-					deleteHike={this.props.deleteHike} />
+					deleteHike={this.props.deleteHike}
+					closeDetails={this.props.closeDetails} />
 				)}
-					<div id="close"><button onClick={this.props.closeDetails.bind(this)}>close</button></div>
 				</div>
 			</div>
 		)

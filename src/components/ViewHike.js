@@ -17,6 +17,7 @@ export class ViewHike extends React.Component {
 					</ul>
 					: ''
 				))}
+				<div id="close"><button onClick={this.props.closeDetails.bind(this)}>close</button></div>
 			</div>
 		)
 	}

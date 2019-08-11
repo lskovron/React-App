@@ -39,6 +39,7 @@ class App extends React.Component {
     }
 
   }
+
   render(){
     return (
       <div>
@@ -59,7 +60,8 @@ class App extends React.Component {
             editing={this.state.editing} 
             id={this.state.editHike} 
             hikes={this.state.hikes}
-            saveChanges={this.saveChanges} />
+            saveChanges={this.saveChanges}
+            editDetails={this.editDetails} />
             ) : '' }
 
         </section>
@@ -72,12 +74,37 @@ class App extends React.Component {
   }
 
   closeDetails = (e) => {
+    //remove the EditHike component
     this.setState({editHike:'',editing:false});
   }
 
   editHike = (e) => {
+    //render the EditHike component
     this.setState({editing:true});
   }
+
+  editDetails = (e, id) => {
+    //get index of hike being edited in state.hikes aray
+    let index = this.state.hikes.findIndex( hike => hike.id === e.target.dataset.id );
+    //make a copy of array
+    let hikes = [...this.state.hikes];
+    //edit the copy
+    console.log(hikes[index]);
+    hikes[index][e.target.name] = e.target.value;
+    console.log(hikes[index]);
+    //set state with edited hikes array
+    this.setState({
+      hikes: hikes
+    })
+
+
+  }
+
+  saveChanges = () => {
+    //remove the EditHike component
+    this.setState({editHike:'',editing:false});
+  }
+
 
   deleteHike = (id) => {
     this.setState({
