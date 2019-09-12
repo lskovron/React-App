@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
 
+    // set initial state
     this.state = {
 
       background: 'url('+defaultBackground+')',
@@ -52,13 +53,14 @@ class App extends React.Component {
           hikes={this.state.hikes} 
           viewDetails={this.viewDetails} />
 
+          {/* viewDetails methos will set 'editHike' state attribute and therefore render this component */}
           { this.state.editHike ? (
             <HikeDetails 
             closeDetails={this.closeDetails} 
             editHike={this.editHike}
             deleteHike={this.deleteHike} 
             editing={this.state.editing} 
-            id={this.state.editHike} 
+            id={this.state.editHike}
             hikes={this.state.hikes}
             saveChanges={this.saveChanges}
             editDetails={this.editDetails} />

@@ -1,28 +1,27 @@
 import React from 'react';
 import {ViewHike} from './ViewHike';
-import {EditHike} from './EditHike';
+import {EditHikeContainer} from '../containers/EditHikeContainer';
 
-export class HikeDetails extends React.Component {
-	render (){
-		return (
-			<div id="hike-details">
-				<div className="container">
-				{this.props.editing ? (
-					<EditHike 
-					hikes={this.props.hikes} 
-					id={this.props.id}
-					saveChanges={this.props.saveChanges}
-					editDetails={this.props.editDetails} />
-				) : (
-					<ViewHike 
-					hikes={this.props.hikes} 
-					id={this.props.id} 
-					editHike={this.props.editHike} 
-					deleteHike={this.props.deleteHike}
-					closeDetails={this.props.closeDetails} />
-				)}
-				</div>
+
+export const HikeDetails = (props) => {
+	return (
+		<div id="hike-details">
+			<div className="container">
+			{props.editing ? (
+				<EditHikeContainer 
+				hikes={props.hikes} 
+				id={props.id}
+				saveChanges={props.saveChanges}
+				editDetails={props.editDetails} />
+			) : (
+				<ViewHike 
+				hikes={props.hikes} 
+				id={props.id} 
+				editHike={props.editHike} 
+				deleteHike={props.deleteHike}
+				closeDetails={props.closeDetails} />
+			)}
 			</div>
-		)
-	}
+		</div>
+	)
 }
